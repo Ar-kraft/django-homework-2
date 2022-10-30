@@ -43,3 +43,23 @@ def omlet(request):
         context = {'recipe': DATA['omlet']}
     return render(request, 'calculator/index.html', context)
 
+def pasta(request):
+    servings = request.GET.get("servings")
+    if servings:
+        res = DATA['pasta'].copy()
+        for key in res:
+            res[key] *= int(servings)
+        context = {'recipe': res}
+    else:
+        context = {'recipe': DATA['pasta']}
+    return render(request, 'calculator/index.html', context)
+def buter(request):
+    servings = request.GET.get("servings")
+    if servings:
+        res = DATA['buter'].copy()
+        for key in res:
+            res[key] *= int(servings)
+        context = {'recipe': res}
+    else:
+        context = {'recipe': DATA['buter']}
+    return render(request, 'calculator/index.html', context)
